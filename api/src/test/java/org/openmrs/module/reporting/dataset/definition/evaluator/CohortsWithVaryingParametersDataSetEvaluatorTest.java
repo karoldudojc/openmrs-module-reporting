@@ -93,14 +93,16 @@ public class CohortsWithVaryingParametersDataSetEvaluatorTest extends BaseModule
         assertCollection(columns, columnMatching("rowLabel"), columnMatching("Has Encounter"));
         Iterator<DataSetRow> rowIterator = result.iterator();
         DataSetRow row = rowIterator.next();
-        assertThat((String) row.getColumnValue("rowLabel"), is("At Never Never Land"));
-        assertThat((Cohort) row.getColumnValue("Has Encounter"), isCohortWithExactlyIds());
-        row = rowIterator.next();
         assertThat((String) row.getColumnValue("rowLabel"), is("At Unknown Location"));
         assertThat((Cohort) row.getColumnValue("Has Encounter"), isCohortWithExactlyIds(7));
         row = rowIterator.next();
         assertThat((String) row.getColumnValue("rowLabel"), is("At Xanadu"));
         assertThat((Cohort) row.getColumnValue("Has Encounter"), isCohortWithExactlyIds(7, 20, 21, 22, 23, 24));
+        row = rowIterator.next();
+        assertThat((String) row.getColumnValue("rowLabel"), is("At Never Never Land"));
+        assertThat((Cohort) row.getColumnValue("Has Encounter"), isCohortWithExactlyIds());
+
+
     }
 
     private Matcher<DataSetColumn> columnMatching(final String name) {

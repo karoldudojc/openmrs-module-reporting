@@ -36,7 +36,7 @@ import org.openmrs.module.reporting.evaluation.EvaluationException;
 /**
  * Evaluates an DrugOrdersForPatientDataDefinition to produce a PatientData
  */
-@Handler(supports=DrugOrdersForPatientDataDefinition.class, order=50)
+//@Handler(supports=DrugOrdersForPatientDataDefinition.class, order=50)
 public class DrugOrdersForPatientDataEvaluator implements PatientDataEvaluator {
 
 	/** 

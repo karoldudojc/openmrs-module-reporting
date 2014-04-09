@@ -72,14 +72,14 @@ public class PatientIdentifierDataEvaluatorTest extends BaseModuleContextSensiti
 		Object o = pd.getData().get(2);
 		List<PatientIdentifier> identifiers = (List<PatientIdentifier>) o;
 		Assert.assertEquals(3, identifiers.size());
-		Assert.assertEquals("102", identifiers.get(0).getIdentifier());
-		Assert.assertEquals("101", identifiers.get(1).getIdentifier());
-		Assert.assertEquals("101-6", identifiers.get(2).getIdentifier());
+		Assert.assertEquals("101-6", identifiers.get(0).getIdentifier());
+		Assert.assertEquals("102", identifiers.get(1).getIdentifier());
+		Assert.assertEquals("101", identifiers.get(2).getIdentifier());
 
         d.setIncludeFirstNonNullOnly(true);
         pd = Context.getService(PatientDataService.class).evaluate(d, context);
         o = pd.getData().get(2);
-        Assert.assertEquals("102", ((PatientIdentifier)o).getIdentifier());
+        Assert.assertEquals("101-6", ((PatientIdentifier)o).getIdentifier());
 	}
 
 	/**
@@ -103,9 +103,9 @@ public class PatientIdentifierDataEvaluatorTest extends BaseModuleContextSensiti
 		Object o = pd.getData().get(2);
 		List<PatientIdentifier> identifiers = (List<PatientIdentifier>) o;
 		Assert.assertEquals(3, identifiers.size());
-		Assert.assertEquals(pi2, identifiers.get(0).getIdentifierType());
+		Assert.assertEquals(pi1, identifiers.get(0).getIdentifierType());
 		Assert.assertEquals(pi2, identifiers.get(1).getIdentifierType());
-		Assert.assertEquals(pi1, identifiers.get(2).getIdentifierType());
+		Assert.assertEquals(pi2, identifiers.get(2).getIdentifierType());
 	}
 
 	/**
@@ -130,7 +130,7 @@ public class PatientIdentifierDataEvaluatorTest extends BaseModuleContextSensiti
 		List<PatientIdentifier> identifiers = (List<PatientIdentifier>) o;
 		Assert.assertEquals(3, identifiers.size());
 		Assert.assertEquals(Boolean.TRUE, identifiers.get(0).getPreferred());
-		Assert.assertEquals(Boolean.FALSE, identifiers.get(1).getPreferred());
-		Assert.assertEquals(Boolean.TRUE, identifiers.get(2).getPreferred());
+		Assert.assertEquals(Boolean.TRUE, identifiers.get(1).getPreferred());
+		Assert.assertEquals(Boolean.FALSE, identifiers.get(2).getPreferred());
 	}
 }

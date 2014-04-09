@@ -67,7 +67,7 @@ public class ProgramStatesForPatientDataEvaluatorTest extends BaseModuleContextS
 		
 		def.setActiveOnDate(DateUtil.getDateTime(2008, 8, 11));
 		EvaluatedPatientData pd = Context.getService(PatientDataService.class).evaluate(def, context);
-		Assert.assertEquals(2, pd.getData().size());
+		Assert.assertEquals(1, pd.getData().size());
 		
 		def.setActiveOnDate(DateUtil.getDateTime(2008, 8, 9));
 		pd = Context.getService(PatientDataService.class).evaluate(def, context);
@@ -99,7 +99,7 @@ public class ProgramStatesForPatientDataEvaluatorTest extends BaseModuleContextS
 		
 		def.setStartedOnOrAfter(DateUtil.getDateTime(2008, 8, 1));
 		pd = Context.getService(PatientDataService.class).evaluate(def, context);
-		Assert.assertEquals(2, pd.getData().size());
+		Assert.assertEquals(1, pd.getData().size());
 		
 		def.setStartedOnOrAfter(DateUtil.getDateTime(2010, 1, 1));
 		pd = Context.getService(PatientDataService.class).evaluate(def, context);
@@ -128,7 +128,7 @@ public class ProgramStatesForPatientDataEvaluatorTest extends BaseModuleContextS
 		
 		def.setStartedOnOrBefore(DateUtil.getDateTime(2010, 1, 1));
 		pd = Context.getService(PatientDataService.class).evaluate(def, context);
-		Assert.assertEquals(2, pd.getData().size());
+		Assert.assertEquals(1, pd.getData().size());
 	}
 	
 	/**
@@ -145,7 +145,7 @@ public class ProgramStatesForPatientDataEvaluatorTest extends BaseModuleContextS
 		
 		def.setEndedOnOrAfter(DateUtil.getDateTime(2008, 1, 1));
 		EvaluatedPatientData pd = Context.getService(PatientDataService.class).evaluate(def, context);
-		Assert.assertEquals(2, pd.getData().size());
+		Assert.assertEquals(1, pd.getData().size());
 		
 		def.setEndedOnOrAfter(DateUtil.getDateTime(2009, 1, 1));
 		pd = Context.getService(PatientDataService.class).evaluate(def, context);
@@ -178,7 +178,7 @@ public class ProgramStatesForPatientDataEvaluatorTest extends BaseModuleContextS
 		
 		def.setEndedOnOrBefore(DateUtil.getDateTime(2010, 1, 1));
 		pd = Context.getService(PatientDataService.class).evaluate(def, context);
-		Assert.assertEquals(2, pd.getData().size());
+		Assert.assertEquals(1, pd.getData().size());
 	}
 	
 	/**
